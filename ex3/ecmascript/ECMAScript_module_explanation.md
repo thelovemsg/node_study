@@ -1,0 +1,6 @@
+ECMAScript 모듈
+자바스크립트의 표준 모듈 방식.
+Node.js 에서 예전부터 표준으로 사용한 CommonJS모듈과 태생이 다르다.
+
+ECMAScript 모듈
+=> ~.mjs 사용도 가능한데, ts도 사용할 겸 그냥 ts로 쓴다.
