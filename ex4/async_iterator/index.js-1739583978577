@@ -1,0 +1,36 @@
+ write = async (chunk) => {
+  await sleep(Math.random() * 1000);.log(counter);
+  counter++;
+
+  await write(chunk);
+});
+
+readStreoPath(import.meta.url);
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const readStream = fs.createRen("error", (e) => {
+  console.log("error :", e);
+});
+ counter = 0;
+readStream.on("data", async (chunk) => {
+  consoleadStream(__filename, {
+  encoding: "utf8",
+  highWaterMark: 64,
+});
+
+const writeFilename = `${__filename}-${Date.now()}`;
+
+constam.on("close", () => {
+  console.log("close");
+});
+
+readStream.oimport fs from "fs";
+import { writeFile } from "fs/promises";
+
+import { fileURLToPath } from "url";
+
+const __filename = fileURLT
+  await writeFile(writeFilename, chunk, { flag: "a" });
+};
+
+let

@@ -1,0 +1,36 @@
+ep(Math.random() * 1000);
+  await writeFile(writeFilename, chunk readStream = fs.createReadStream(__filename, {
+  encoding: "utfimport fs from "fs";
+import { writeFile } from "fs/promises";
+
+i, { flag: "a" });
+};
+
+let counter = 0;
+readStream.on("data", asy(ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const8",
+  highWaterMark: 64,
+});
+
+const writeFilename = `${__filename}-${Date.now()}`;
+
+const write = async (chunk) => {
+  await slenst __filename = fileURLToPath(import.meta.url);
+
+const sleep = nc (chunk) => {
+  console.log(counter);
+  counter++;
+
+  await wrlose");
+});
+
+readStream.on("error", (e) => {
+  console.log("erroite(chunk);
+});
+
+readStream.on("close", () => {
+  console.log("cmport { fileURLToPath } from "url";
+import path from "path";
+
+cor :", e);
+});
