@@ -1,0 +1,1 @@
+(error) ERR unknown command 'localhost:6379', with args beginning with: 'ex1' 'ex2' 'ex3' 'ex4' 'ex5_cli_test' 'ex6_express' 'keys' 'node_modules' 'package.json' 'package-lock.json' 'README.md' 
