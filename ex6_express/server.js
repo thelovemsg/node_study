@@ -5,6 +5,25 @@ const app = express();
 const api = require("./routes/api");
 const usersHandler = require("./handlers/users");
 
+const wrapAPI = (fn) => {
+  return (req, res, next) => {
+    try {
+      fn(req)
+        .then((data) => res.status(200).json(data))
+        .catch((e) => next(e));
+    } catch (error) {
+      next(e);
+    }
+  };
+};
+
+const handler = async (req) => {
+  const error = new Error("무언가의 에러");
+  error.stauts = 400;
+
+  throw error;
+};
+
 app.set("view engine", "ejs");
 
 const errorMiddleware = (req, res, next) => {
@@ -16,15 +35,16 @@ app.get("/", (req, res) => {
   // res.status(200).send("hello world\n");
 });
 
-app.get("/user/:id", async (req, res) => {
-  try {
-    const user = await usersHandler.getUser(req);
-    res.status(200).json(user);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("internal error");
-  }
-});
+// app.get("/user/:id", async (req, res) => {
+//   try {
+//     const user = await usersHandler.getUser(req);
+//     res.status(200).json(user);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("internal error");
+//   }
+// });
+app.get("/user/:id", wrapAPI(handler));
 
 app.get("/users", async (req, res) => {
   try {
@@ -63,8 +83,11 @@ app.get("/err", errorMiddleware, (req, res) => {
 // 포괄적인 에러 핸들링
 // 비동기는 잡아낼 수 없으니 주의
 app.use((err, req, res, next) => {
-  console.error("🔥 Internal Server Error:", err.stack);
-  res.status(500).send("Internal Server Errors");
+  if (err.status) {
+    return res.status(err.status).send(err.message);
+  }
+  res.status(500).send("Internal Server Error");
+  console.log("[Internal Server Error]", err);
 });
 
 app.use("/api", api.router);
